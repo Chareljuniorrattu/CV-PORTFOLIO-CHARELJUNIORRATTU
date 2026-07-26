@@ -162,17 +162,15 @@ section {
 
 .hero-image {
     position: relative;
-    display: block;
+    display: inline-block;
     width: 100%;
     max-width: 360px;
     margin: 0 auto;
-    text-align: center;
 }
 
 /* foto profil lingkaran */
 .hero-image img {
     width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
     aspect-ratio: 1 / 1 !important;
     border-radius: 50% !important;
@@ -180,7 +178,6 @@ section {
     box-shadow: 0 0 60px rgba(59,130,246,0.45) !important;
     object-fit: cover !important;
     display: block !important;
-    margin: 0 auto !important;
     transition: all 0.4s ease;
 }
 
@@ -222,7 +219,7 @@ section {
     .hero-image { max-width: 280px; }
 }
 @media (max-width: 768px) {
-    .hero-image { max-width: 200px; }
+    .hero-image { max-width: 220px; }
 }
 @media (max-width: 576px) {
     .hero-image { max-width: 160px; }
@@ -823,9 +820,7 @@ section {
     box-shadow: 0 10px 25px rgba(59,130,246,0.4);
 }
 
-/* ==========================================
-   RESPONSIVE - TABLET
-   ========================================== */
+/* RESPONSIVE - TABLET */
 @media (max-width: 992px) {
     section { padding: 70px 0; }
     #home {
@@ -874,9 +869,7 @@ section {
     .achievement-card { padding: 25px 20px; }
 }
 
-/* ==========================================
-   RESPONSIVE - MOBILE (FIX UNTUK HP)
-   ========================================== */
+/* RESPONSIVE - MOBILE LANDSCAPE */
 @media (max-width: 768px) {
     .container { padding: 0 18px; }
     section { padding: 50px 0; }
@@ -890,380 +883,363 @@ section {
         margin: 8px 0;
         font-size: clamp(0.85rem, 2vw, 1rem);
     }
-    
-    /* HERO - SEMUA DI TENGAH */
     #home {
-        padding: 80px 0 30px !important;
-        text-align: center !important;
+        padding: 90px 0 30px;
     }
-    #home .row {
-        flex-direction: column-reverse !important;
-    }
-    #home .col-lg-5,
-    #home .col-lg-7 {
-        text-align: center !important;
-        padding: 0 10px !important;
-    }
-    #home h1 {
-        font-size: clamp(1.5rem, 4.5vw, 2.2rem) !important;
-        text-align: center !important;
-    }
+    #home h1 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
     #typing {
-        font-size: clamp(0.8rem, 2vw, 1.1rem) !important;
-        min-height: 30px !important;
-        text-align: center !important;
+        font-size: clamp(0.8rem, 2vw, 1.1rem);
+        min-height: 30px;
     }
     #home p {
-        font-size: clamp(0.75rem, 1.8vw, 0.9rem) !important;
-        text-align: center !important;
-        padding: 0 10px !important;
-    }
-    
-    /* FOTO PROFIL - UKURAN PAS DI HP */
-    .hero-image {
-        max-width: 200px !important;
-        margin: 0 auto 20px !important;
+        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        padding: 0 5px;
     }
     .hero-image img {
-        width: 200px !important;
-        height: 200px !important;
-        min-width: 200px !important;
-        min-height: 200px !important;
-        max-width: 200px !important;
-        max-height: 200px !important;
+        width: clamp(160px, 35vw, 220px);
     }
     .hero-image::after {
-        width: calc(200px + 30px) !important;
-        height: calc(200px + 30px) !important;
+        width: clamp(200px, 40vw, 260px);
+        height: clamp(200px, 40vw, 260px);
     }
-    
-    /* BADGE */
     .badge {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
-        padding: 6px 12px !important;
-    }
-    
-    /* TOMBOL - FULL WIDTH */
-    .hero-btn {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 8px !important;
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        padding: 6px 12px;
     }
     .hero-btn .btn {
-        width: 80% !important;
-        max-width: 250px !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        padding: 10px 20px !important;
-        font-size: 14px !important;
-        white-space: normal !important;
-    }
-    
-    /* SOCIAL MEDIA */
-    .social {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        margin-top: 20px !important;
+        padding: 8px 16px;
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+        margin-right: 6px;
+        margin-bottom: 8px;
+        white-space: nowrap;
     }
     .social a {
-        width: 45px !important;
-        height: 45px !important;
-        font-size: 18px !important;
-        margin: 0 !important;
+        width: clamp(35px, 6vw, 42px);
+        height: clamp(35px, 6vw, 42px);
+        font-size: clamp(12px, 2vw, 15px);
+        margin-right: 6px;
     }
-    
-    /* SECTION TITLE */
     .section-title {
-        font-size: clamp(1.1rem, 3.5vw, 1.6rem) !important;
-        text-align: center !important;
-        margin-bottom: 25px !important;
+        font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+        margin-bottom: 25px;
     }
     .section-subtitle {
-        font-size: clamp(0.55rem, 1.2vw, 0.7rem) !important;
-        text-align: center !important;
-    }
-    
-    /* ABOUT */
-    #about .row {
-        flex-direction: column !important;
-    }
-    #about .col-lg-6 {
-        text-align: center !important;
-    }
-    #about p {
-        font-size: clamp(0.8rem, 1.5vw, 0.9rem) !important;
-        text-align: center !important;
+        font-size: clamp(0.55rem, 1.2vw, 0.7rem);
     }
     .about-card {
-        padding: 18px 12px !important;
-        margin-bottom: 12px !important;
+        padding: 18px 12px;
+        margin-bottom: 12px;
     }
     .about-card h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
-    
-    /* SKILLS */
-    .skill-box { margin-bottom: 16px !important; }
-    .skill-title { font-size: 14px !important; }
-    
-    /* PROJECTS */
-    .project-card { min-height: auto !important; margin-bottom: 20px !important; }
+    .skill-box { margin-bottom: 16px; }
     .project-card img {
-        min-height: 180px !important;
-        max-height: 180px !important;
-        height: 180px !important;
+        min-height: 120px;
+        max-height: 180px;
     }
-    .project-content { padding: 15px !important; }
+    .project-content { padding: 16px; }
     .project-content h4 {
-        font-size: 16px !important;
-        text-align: center !important;
+        font-size: clamp(0.85rem, 2vw, 1.05rem);
     }
     .project-content p {
-        font-size: 13px !important;
-        text-align: center !important;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
-    .project-content .btn {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 10px !important;
-    }
-    
-    /* GALLERY */
     .gallery-item img {
-        min-height: 160px !important;
-        max-height: 160px !important;
-        height: 160px !important;
+        min-height: 120px;
+        max-height: 180px;
     }
-    
-    /* COUNTER */
-    #counter { padding: 50px 0 !important; }
+    #counter { padding: 50px 0; }
     .counter-box {
-        padding: 18px 12px !important;
-        margin-bottom: 15px !important;
+        padding: 18px 12px;
+        margin-bottom: 15px;
     }
     .counter-box h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
-    
-    /* SERVICES */
     .service-card {
-        padding: 20px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        min-height: 150px;
     }
     .service-card i {
-        font-size: clamp(30px, 5vw, 38px) !important;
+        font-size: clamp(30px, 5vw, 38px);
     }
     .service-card h4 {
-        font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
-    .service-card p {
-        font-size: 13px !important;
-    }
-    
-    /* ACHIEVEMENT */
     .achievement-card {
-        padding: 20px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        min-height: 110px;
     }
     .achievement-card h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
     .achievement-card i {
-        font-size: clamp(30px, 5vw, 38px) !important;
+        font-size: clamp(30px, 5vw, 38px);
     }
-    
-    /* CONTACT */
-    .contact-info { padding: 20px !important; }
+    .contact-info { padding: 20px; }
     .contact-item {
-        flex-direction: column !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
     }
     .contact-item i {
-        margin-right: 0 !important;
-        margin-bottom: 10px !important;
-        width: 45px !important;
-        height: 45px !important;
-        font-size: 16px !important;
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: clamp(40px, 6vw, 45px);
+        height: clamp(40px, 6vw, 45px);
+        font-size: clamp(14px, 2vw, 16px);
     }
-    .contact-form { padding: 20px !important; }
+    .contact-form { padding: 20px; }
     .contact-form .form-control {
-        padding: 10px 14px !important;
-        font-size: 14px !important;
-        margin-bottom: 14px !important;
+        padding: 10px 14px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+        margin-bottom: 14px;
     }
     .contact-form button {
-        width: 100% !important;
-        padding: 12px !important;
-        font-size: 14px !important;
+        padding: 10px 28px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
     .download-cv .btn {
-        padding: 10px 22px !important;
-        font-size: 14px !important;
+        padding: 10px 22px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
-    
-    /* FOOTER */
+    .resume-card {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    .resume-card h3 {
+        font-size: clamp(0.9rem, 2vw, 1.05rem);
+    }
+    .table {
+        font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+    }
+    .table td, .table th {
+        padding: 6px 10px;
+    }
     #footer {
-        padding: 40px 0 20px !important;
-        text-align: center !important;
+        padding: 40px 0 20px;
+        text-align: center;
     }
     #footer h2 {
-        font-size: clamp(1rem, 3vw, 1.3rem) !important;
+        font-size: clamp(1rem, 3vw, 1.3rem);
     }
     #footer h4 {
-        font-size: clamp(0.85rem, 2vw, 1rem) !important;
+        font-size: clamp(0.85rem, 2vw, 1rem);
     }
-    #footer ul { padding: 0 !important; }
-    .footer-social { justify-content: center !important; }
+    #footer ul { padding: 0; }
+    .footer-social { justify-content: center; }
     .footer-social a {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 15px !important;
+        width: clamp(35px, 5vw, 40px);
+        height: clamp(35px, 5vw, 40px);
+        font-size: clamp(12px, 1.8vw, 15px);
     }
-    
-    /* TOP BUTTON */
     #topBtn {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 14px !important;
-        bottom: 15px !important;
-        right: 15px !important;
+        width: clamp(38px, 6vw, 42px);
+        height: clamp(38px, 6vw, 42px);
+        font-size: clamp(14px, 2vw, 16px);
+        bottom: 15px;
+        right: 15px;
     }
 }
 
-/* ==========================================
-   RESPONSIVE - HP KECIL (< 576px)
-   ========================================== */
+/* RESPONSIVE - MOBILE PORTRAIT */
 @media (max-width: 576px) {
-    .container { padding: 0 12px !important; }
-    section { padding: 40px 0 !important; }
-    
-    #home h1 { font-size: 24px !important; }
+    .container { padding: 0 12px; }
+    section { padding: 40px 0; }
+    #home h1 { font-size: clamp(1.2rem, 5vw, 1.6rem); }
     #typing {
-        font-size: 15px !important;
-        min-height: 25px !important;
-        margin: 12px 0 !important;
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        min-height: 25px;
+        margin: 12px 0;
     }
     #home p {
-        font-size: 13px !important;
-    }
-    
-    .hero-image {
-        max-width: 160px !important;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
     }
     .hero-image img {
-        width: 160px !important;
-        height: 160px !important;
-        min-width: 160px !important;
-        min-height: 160px !important;
-        max-width: 160px !important;
-        max-height: 160px !important;
+        width: clamp(120px, 35vw, 160px);
     }
     .hero-image::after {
-        width: calc(160px + 30px) !important;
-        height: calc(160px + 30px) !important;
+        width: clamp(160px, 40vw, 200px);
+        height: clamp(160px, 40vw, 200px);
     }
-    
-    .badge {
-        font-size: 11px !important;
-        padding: 5px 12px !important;
-    }
-    
-    .hero-btn .btn {
-        width: 90% !important;
-        font-size: 12px !important;
-        padding: 8px 16px !important;
-    }
-    
     .section-title {
-        font-size: clamp(0.95rem, 3.5vw, 1.2rem) !important;
-        margin-bottom: 20px !important;
+        font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+        margin-bottom: 20px;
     }
-    
-    .about-card { padding: 14px 10px !important; }
-    .about-card h2 { font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important; }
-    
-    .project-card { min-height: auto !important; }
+    .hero-btn .btn {
+        padding: 6px 14px;
+        font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+        width: 100%;
+        margin: 4px 0;
+        white-space: normal;
+    }
+    .hero-btn {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .social a {
+        width: clamp(30px, 7vw, 36px);
+        height: clamp(30px, 7vw, 36px);
+        font-size: clamp(10px, 2vw, 13px);
+        margin-right: 5px;
+    }
+    .about-card {
+        padding: 14px 10px;
+        min-height: 80px;
+    }
+    .about-card h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .project-card { min-height: 260px; }
     .project-card img {
-        min-height: 150px !important;
-        max-height: 150px !important;
-        height: 150px !important;
+        min-height: 100px;
+        max-height: 150px;
     }
-    .project-content { padding: 14px !important; }
-    .project-content h4 { font-size: 15px !important; }
-    .project-content p { font-size: 12px !important; }
-    
+    .project-content { padding: 14px; }
+    .project-content h4 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+    .project-content p {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .project-content .btn {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        padding: 6px 16px;
+    }
     .gallery-item img {
-        min-height: 130px !important;
-        max-height: 130px !important;
-        height: 130px !important;
+        min-height: 100px;
+        max-height: 150px;
     }
-    
-    .counter-box { padding: 14px 10px !important; }
-    .counter-box h2 { font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important; }
-    .counter-box p { font-size: 12px !important; }
-    
-    .service-card { padding: 16px 12px !important; }
-    .service-card i { font-size: 28px !important; }
-    .service-card h4 { font-size: 15px !important; }
-    .service-card p { font-size: 12px !important; }
-    
-    .achievement-card { padding: 16px 12px !important; }
-    .achievement-card h2 { font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important; }
-    .achievement-card i { font-size: 28px !important; }
-    .achievement-card p { font-size: 12px !important; }
-    
-    .contact-info { padding: 16px !important; }
-    .contact-item { margin-bottom: 16px !important; }
+    .counter-box {
+        padding: 14px 10px;
+        min-height: 80px;
+    }
+    .counter-box h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .counter-box p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .service-card {
+        padding: 16px 12px;
+        min-height: 130px;
+    }
+    .service-card i {
+        font-size: clamp(25px, 6vw, 32px);
+        margin-bottom: 12px;
+    }
+    .service-card h4 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .achievement-card {
+        padding: 16px 12px;
+        min-height: 100px;
+    }
+    .achievement-card h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .achievement-card i {
+        font-size: clamp(25px, 6vw, 32px);
+        margin-bottom: 10px;
+    }
+    .achievement-card p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .contact-info { padding: 16px; }
+    .contact-item { margin-bottom: 16px; }
     .contact-item i {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 14px !important;
+        width: clamp(35px, 7vw, 40px);
+        height: clamp(35px, 7vw, 40px);
+        font-size: clamp(12px, 2.5vw, 14px);
     }
-    .contact-item h5 { font-size: 14px !important; }
-    .contact-item p { font-size: 13px !important; }
-    .contact-form { padding: 16px !important; }
+    .contact-item h5 {
+        font-size: clamp(0.75rem, 2vw, 0.85rem);
+    }
+    .contact-item p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .contact-form { padding: 16px; }
     .contact-form .form-control {
-        padding: 8px 12px !important;
-        font-size: 13px !important;
-        margin-bottom: 12px !important;
+        padding: 8px 12px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+        margin-bottom: 12px;
     }
     .contact-form button {
-        padding: 10px !important;
-        font-size: 13px !important;
+        padding: 8px 22px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
     }
-    .quote-box { padding: 16px !important; }
-    .quote-box i { font-size: 18px !important; }
-    .quote-box p { font-size: 13px !important; }
-    
+    .quote-box {
+        padding: 16px;
+        margin-top: 25px;
+    }
+    .quote-box i {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .quote-box p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
     .download-cv .btn {
-        padding: 8px 18px !important;
-        font-size: 13px !important;
+        padding: 8px 18px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
     }
-    
-    #footer { padding: 30px 0 15px !important; }
-    #footer h2 { font-size: clamp(0.9rem, 3vw, 1.1rem) !important; }
-    #footer h4 { font-size: 14px !important; }
-    #footer p { font-size: 12px !important; }
-    #footer li a { font-size: 12px !important; }
+    .resume-card {
+        padding: 16px;
+    }
+    .resume-card h3 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        margin-bottom: 14px;
+    }
+    .resume-card li {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        margin-bottom: 6px;
+    }
+    .table {
+        font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+    }
+    .table td, .table th {
+        padding: 4px 6px;
+    }
+    #footer {
+        padding: 30px 0 15px;
+    }
+    #footer h2 {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+    #footer h4 {
+        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+        margin-bottom: 12px;
+    }
+    #footer p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    #footer li a {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
     .footer-social a {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 13px !important;
+        width: clamp(30px, 6vw, 35px);
+        height: clamp(30px, 6vw, 35px);
+        font-size: clamp(10px, 2vw, 13px);
+        margin-right: 5px;
     }
-    .copyright { font-size: 11px !important; }
-    
+    #footer hr { margin: 20px 0; }
+    .copyright {
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+    }
     #topBtn {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 12px !important;
-        bottom: 12px !important;
-        right: 12px !important;
+        width: clamp(32px, 7vw, 38px);
+        height: clamp(32px, 7vw, 38px);
+        font-size: clamp(12px, 2vw, 14px);
+        bottom: 12px;
+        right: 12px;
     }
 }
 
