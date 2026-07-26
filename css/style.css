@@ -39,8 +39,13 @@ body {
     font-size: 1rem;
 }
 
-a { text-decoration: none; }
-ul { list-style: none; }
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
 
 section {
     padding: 100px 0;
@@ -50,22 +55,11 @@ section {
     max-width: 1200px;
     padding-left: 15px;
     padding-right: 15px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
 }
 
-.row {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-[class*="col-"] {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-/* SCROLLBAR */
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -85,7 +79,9 @@ section {
     color: white;
 }
 
-/* LOADER */
+/* ==========================================
+   LOADER
+   ========================================== */
 #loader {
     position: fixed;
     width: 100%;
@@ -105,25 +101,27 @@ section {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 6px solid rgba(255,255,255,.2);
+    border: 6px solid rgba(255, 255, 255, .2);
     border-top: 6px solid var(--primary);
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    100% { transform: rotate(360deg); }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-/* NAVBAR */
+/* ==========================================
+   NAVBAR
+   ========================================== */
 .navbar {
     padding: 20px 0;
     transition: .4s;
-    position: relative;
-    z-index: 1050;
 }
 .navbar.scrolled {
     background: #08101e;
-    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
 }
 
 .navbar-brand {
@@ -153,9 +151,6 @@ section {
 .navbar-toggler {
     border: none;
     color: white;
-    padding: 8px 12px;
-    z-index: 1070;
-    position: relative;
 }
 .navbar-toggler:focus {
     box-shadow: none;
@@ -164,7 +159,9 @@ section {
     font-size: 28px;
 }
 
-/* HERO */
+/* ==========================================
+   HERO
+   ========================================== */
 #home {
     min-height: 100vh;
     display: flex;
@@ -178,48 +175,40 @@ section {
     min-width: 0;
 }
 
-/* ============================================
-   FOTO PROFIL - LINGKARAN SEMPURNA
-   ============================================ */
+/* ==========================================
+   HERO - FOTO PROFIL LINGKARAN SEMPURNA
+   ========================================== */
+
 .hero-image {
     position: relative;
     display: inline-block;
     width: 100%;
     max-width: 360px;
     margin: 0 auto;
-    border-radius: 50%;
-    overflow: visible;
-    flex-shrink: 0;
 }
 
-/* WRAPPER UNTUK FOTO AGAR GLOW TIDAK LONJONG */
-.hero-image .img-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 6px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 60px rgba(59,130,246,0.45);
+/* ===== FOTO UTAMA ===== */
+.hero-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    /* MEMBUAT PERSEGI SEMPURNA */
+    border-radius: 50% !important;
+    /* MEMBUAT LINGKARAN */
+    border: 6px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.45) !important;
+    object-fit: cover !important;
+    /* BIAR FOTO TIDAK KEPOTONG */
+    display: block !important;
     transition: all 0.4s ease;
 }
 
-.hero-image .img-wrapper:hover {
+.hero-image img:hover {
     transform: scale(1.03);
-    border-color: rgba(59,130,246,0.6);
+    border-color: rgba(59, 130, 246, 0.6);
 }
 
-.hero-image .img-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* GLOW EFFECT - SEKARANG MENGIKUTI UKURAN WRAPPER */
+/* ===== BINGKAI LUAR (GLOW) ===== */
 .hero-image::after {
     content: "";
     position: absolute;
@@ -229,23 +218,45 @@ section {
     height: calc(100% + 30px);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid rgba(59,130,246,0.25);
+    border: 2px solid rgba(59, 130, 246, 0.25);
     z-index: -1;
     animation: pulseGlow 3s ease-in-out infinite;
     pointer-events: none;
 }
 
+/* ===== ANIMASI GLOW ===== */
 @keyframes pulseGlow {
-    0%, 100% {
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.5;
     }
     50% {
         transform: translate(-50%, -50%) scale(1.06);
         opacity: 1;
-        border-color: rgba(59,130,246,0.5);
+        border-color: rgba(59, 130, 246, 0.5);
     }
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .hero-image {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-image {
+        max-width: 160px;
+    }
+}
+
 
 .badge {
     font-size: clamp(0.6rem, 0.8vw, 0.9rem);
@@ -322,7 +333,9 @@ section {
     background: var(--primary);
 }
 
-/* ABOUT */
+/* ==========================================
+   ABOUT
+   ========================================== */
 #about {
     background: #101827;
 }
@@ -355,7 +368,7 @@ section {
     padding: 30px 20px;
     text-align: center;
     transition: .4s;
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255, 255, 255, .08);
     min-height: 100px;
 }
 .about-card h2 {
@@ -371,10 +384,12 @@ section {
 }
 .about-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(59,130,246,.25);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, .25);
 }
 
-/* SKILLS */
+/* ==========================================
+   SKILLS
+   ========================================== */
 #skills {
     background: #0B1120;
     padding: 100px 0;
@@ -415,7 +430,9 @@ section {
 .java { width: 80%; }
 .git { width: 85%; }
 
-/* EDUCATION */
+/* ==========================================
+   EDUCATION
+   ========================================== */
 #education {
     background: #101827;
 }
@@ -455,7 +472,7 @@ section {
 }
 .timeline-content:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(59,130,246,.25);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, .25);
 }
 .timeline-content h4 {
     color: #3B82F6;
@@ -472,7 +489,9 @@ section {
     color: #CBD5E1;
 }
 
-/* PROJECTS */
+/* ==========================================
+   PROJECTS
+   ========================================== */
 #projects {
     background: #0B1120;
 }
@@ -482,22 +501,19 @@ section {
     border-radius: 20px;
     overflow: hidden;
     transition: .4s;
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255, 255, 255, .08);
     min-height: 320px;
-    height: 100%;
 }
 .project-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(59,130,246,.25);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, .25);
 }
 .project-card img {
     width: 100%;
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
+    height: auto;
+    min-height: 150px;
+    max-height: 220px;
     object-fit: cover;
-    display: block;
-    background: #1a1a2e;
 }
 
 .project-content {
@@ -522,7 +538,9 @@ section {
     padding: 8px 20px;
 }
 
-/* GALLERY */
+/* ==========================================
+   GALLERY
+   ========================================== */
 #gallery {
     background: #101827;
 }
@@ -533,9 +551,9 @@ section {
 }
 .gallery-item img {
     width: 100%;
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
+    height: auto;
+    min-height: 150px;
+    max-height: 220px;
     object-fit: cover;
     transition: .5s;
 }
@@ -543,7 +561,9 @@ section {
     transform: scale(1.08);
 }
 
-/* CONTACT */
+/* ==========================================
+   CONTACT
+   ========================================== */
 #contact {
     background: #0B1120;
 }
@@ -644,7 +664,9 @@ section {
     font-size: clamp(0.75rem, 0.9vw, 0.95rem);
 }
 
-/* COUNTER */
+/* ==========================================
+   COUNTER
+   ========================================== */
 #counter {
     background: #08101e;
     padding: 70px 0;
@@ -655,12 +677,12 @@ section {
     padding: 30px 20px;
     border-radius: 20px;
     transition: .4s;
-    border: 1px solid rgba(255,255,255,.05);
+    border: 1px solid rgba(255, 255, 255, .05);
     min-height: 100px;
 }
 .counter-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(59,130,246,.2);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, .2);
 }
 .counter-box h2 {
     color: #3B82F6;
@@ -674,7 +696,9 @@ section {
     font-size: clamp(0.7rem, 0.8vw, 0.95rem);
 }
 
-/* SERVICES */
+/* ==========================================
+   SERVICES
+   ========================================== */
 #services {
     background: #101827;
 }
@@ -685,13 +709,13 @@ section {
     border-radius: 20px;
     text-align: center;
     transition: .4s;
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255, 255, 255, .08);
     height: 100%;
     min-height: 180px;
 }
 .service-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 20px 45px rgba(59,130,246,.25);
+    box-shadow: 0 20px 45px rgba(59, 130, 246, .25);
 }
 .service-card i {
     font-size: clamp(35px, 4vw, 50px);
@@ -711,7 +735,9 @@ section {
     word-break: break-word;
 }
 
-/* ACHIEVEMENT */
+/* ==========================================
+   ACHIEVEMENT
+   ========================================== */
 #achievement {
     background: #0B1120;
 }
@@ -727,7 +753,7 @@ section {
 }
 .achievement-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(59,130,246,.25);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, .25);
 }
 .achievement-card i {
     font-size: clamp(35px, 4vw, 50px);
@@ -744,7 +770,48 @@ section {
     font-size: clamp(0.7rem, 0.8vw, 0.95rem);
 }
 
-/* FOOTER */
+/* ==========================================
+   RESUME
+   ========================================== */
+#resume {
+    background: #101827;
+}
+
+.resume-card {
+    background: #182233;
+    padding: 30px;
+    border-radius: 20px;
+    height: 100%;
+}
+.resume-card h3 {
+    margin-bottom: 20px;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+.resume-card ul,
+.resume-card ol {
+    padding-left: 20px;
+}
+.resume-card li {
+    margin-bottom: 10px;
+    color: #CBD5E1;
+    font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+    word-break: break-word;
+}
+
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: clamp(0.7rem, 0.85vw, 0.95rem);
+}
+.table td,
+.table th {
+    padding: 8px 14px;
+    word-break: break-word;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
 #footer {
     background: #050b16;
     padding: 60px 0 25px;
@@ -815,7 +882,9 @@ section {
     font-size: clamp(0.7rem, 0.8vw, 0.9rem);
 }
 
-/* BACK TO TOP */
+/* ==========================================
+   BACK TO TOP BUTTON
+   ========================================== */
 #topBtn {
     position: fixed;
     bottom: 25px;
@@ -836,755 +905,539 @@ section {
     transform: translateY(-8px);
 }
 
-/* BUTTONS */
+/* ==========================================
+   BUTTONS
+   ========================================== */
 .btn-primary {
     transition: all 0.3s ease;
 }
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* ============================================
-   RESPONSIVE - TABLET & HP
-   ============================================ */
-@media (max-width: 991.98px) {
-    section { 
-        padding: 70px 0; 
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================== */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 992px) {
+    section {
+        padding: 70px 0;
     }
-    
     #home {
-        padding: 90px 0 40px !important;
-        min-height: 100vh !important;
-        display: flex !important;
-        align-items: center !important;
+        text-align: center;
+        padding: 110px 0 50px;
+        min-height: auto;
     }
-    
-    #home .row {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
+    #home h1 {
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem);
     }
-    
-    #home .col-lg-7 {
-        order: 2 !important;
-        width: 100% !important;
-        padding: 0 15px !important;
+    #typing {
+        font-size: clamp(0.9rem, 2vw, 1.3rem);
     }
-    
-    #home .col-lg-5 {
-        order: 1 !important;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        margin-bottom: 20px !important;
+    .section-title {
+        font-size: clamp(1.3rem, 3vw, 2rem);
     }
-    
-    #home h1 { 
-        font-size: clamp(1.8rem, 4.5vw, 2.8rem) !important;
-        margin-top: 10px !important;
+    .hero-image img {
+        width: clamp(200px, 35vw, 280px);
+        margin-bottom: 30px;
     }
-    
-    #typing { 
-        font-size: clamp(0.9rem, 2vw, 1.3rem) !important;
-        min-height: 35px !important;
-    }
-    
-    .section-title { 
-        font-size: clamp(1.3rem, 3vw, 2rem) !important;
-    }
-    
-    /* FOTO PROFIL - TABLET */
-    .hero-image {
-        width: 280px !important;
-        max-width: 280px !important;
-        margin: 0 auto 20px !important;
-    }
-    
-    .hero-image .img-wrapper {
-        border: 5px solid rgba(255,255,255,0.15) !important;
-        box-shadow: 0 0 50px rgba(59,130,246,0.4) !important;
-    }
-    
     .hero-image::after {
-        width: calc(100% + 30px) !important;
-        height: calc(100% + 30px) !important;
+        width: clamp(240px, 38vw, 320px);
+        height: clamp(240px, 38vw, 320px);
     }
-    
     #home p {
         margin: 0 auto;
         font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-        max-width: 600px;
     }
-    
     .hero-btn {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
     }
-    
     .hero-btn .btn {
         white-space: nowrap;
         font-size: clamp(0.7rem, 1.2vw, 0.9rem);
         padding: 8px 20px;
     }
-    
-    .social { 
-        justify-content: center; 
-        flex-wrap: wrap;
+    .social {
+        justify-content: center;
     }
-    
-    /* NAVBAR MOBILE */
-    .navbar {
-        padding: 15px 0 !important;
-        position: relative !important;
-        z-index: 1050 !important;
+    .timeline::before {
+        left: 20px;
     }
-    
-    .navbar-collapse {
-        background: #08101e !important;
-        padding: 15px 20px !important;
-        border-radius: 12px !important;
-        margin-top: 10px !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 15px !important;
-        right: 15px !important;
-        width: auto !important;
-        z-index: 1060 !important;
-    }
-    
-    .navbar-collapse.show {
-        display: block !important;
-    }
-    
-    .navbar-nav {
-        text-align: center !important;
-        padding: 5px 0 !important;
-    }
-    
-    .nav-item {
-        margin: 5px 0 !important;
-    }
-    
-    .nav-link {
-        margin: 0 !important;
-        padding: 10px 15px !important;
-        font-size: 1rem !important;
-        border-radius: 8px !important;
-        transition: 0.3s !important;
-    }
-    
-    .nav-link:hover {
-        background: rgba(59,130,246,0.1) !important;
-    }
-    
-    .navbar-toggler {
-        padding: 8px 12px !important;
-        z-index: 1070 !important;
-        position: relative !important;
-    }
-    
-    .navbar-toggler i {
-        font-size: 26px !important;
-    }
-    
-    /* TIMELINE */
-    .timeline::before { 
-        left: 20px; 
-    }
-    
     .timeline-item {
         width: 100%;
         padding-left: 50px;
         padding-right: 15px;
     }
-    .timeline-item:nth-child(even) { left: 0; }
-    .timeline-item:nth-child(odd) { left: 0; }
-    
-    .contact-info { 
-        margin-bottom: 25px; 
+    .timeline-item:nth-child(even) {
+        left: 0;
     }
-}
-
-/* ============================================
-   RESPONSIVE - HP PORTRAIT
-   ============================================ */
-@media (max-width: 767.98px) {
-    .container { 
-        padding: 0 15px !important; 
+    .timeline-item:nth-child(odd) {
+        left: 0;
     }
-    
-    section { 
-        padding: 50px 0 !important; 
+    .contact-info {
+        margin-bottom: 25px;
     }
-    
-    .navbar { 
-        padding: 12px 0 !important; 
-    }
-    
-    .navbar-brand { 
-        font-size: clamp(1rem, 3vw, 1.4rem) !important; 
-    }
-    
-    .navbar-collapse {
-        padding: 12px 15px !important;
-        left: 10px !important;
-        right: 10px !important;
-    }
-    
-    .nav-link {
-        padding: 8px 12px !important;
-        font-size: 0.95rem !important;
-    }
-    
-    #home {
-        padding: 80px 0 30px !important;
-    }
-    
-    #home h1 { 
-        font-size: clamp(1.5rem, 4.5vw, 2rem) !important;
-        margin-top: 5px !important;
-    }
-    
-    #typing {
-        font-size: clamp(0.8rem, 2vw, 1rem) !important;
-        min-height: 30px !important;
-        margin: 10px 0 !important;
-    }
-    
-    #home p {
-        font-size: clamp(0.75rem, 1.8vw, 0.88rem) !important;
-        padding: 0 5px !important;
-        max-width: 100% !important;
-    }
-    
-    /* FOTO PROFIL - HP (PAKAI PADDING TOP TRICK) */
-    .hero-image {
-        width: 200px !important;
-        max-width: 200px !important;
-        margin: 0 auto 15px !important;
-    }
-    
-    .hero-image .img-wrapper {
-        padding-top: 100% !important;
-        border: 4px solid rgba(255,255,255,0.15) !important;
-        box-shadow: 0 0 40px rgba(59,130,246,0.35) !important;
-    }
-    
-    .hero-image .img-wrapper img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-    
-    .hero-image::after {
-        width: calc(100% + 25px) !important;
-        height: calc(100% + 25px) !important;
-        border-radius: 50% !important;
-    }
-    
-    .badge {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
-        padding: 5px 12px !important;
-    }
-    
-    .hero-btn .btn {
-        padding: 8px 16px !important;
-        font-size: clamp(0.65rem, 1.5vw, 0.8rem) !important;
-        margin: 0 !important;
-        white-space: nowrap !important;
-    }
-    
-    .hero-btn {
-        gap: 8px !important;
-        flex-wrap: wrap !important;
-    }
-    
-    .social a {
-        width: clamp(35px, 6vw, 42px) !important;
-        height: clamp(35px, 6vw, 42px) !important;
-        font-size: clamp(12px, 2vw, 15px) !important;
-        margin: 0 5px !important;
-    }
-    
-    .section-title {
-        font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
-        margin-bottom: 25px !important;
-    }
-    
-    .section-subtitle {
-        font-size: clamp(0.55rem, 1.2vw, 0.7rem) !important;
-    }
-    
     .about-card {
-        padding: 18px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
     }
-    
-    .about-card h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
-    }
-    
-    .about-card p {
-        font-size: clamp(0.7rem, 0.8vw, 0.85rem) !important;
-    }
-    
-    .skill-box { 
-        margin-bottom: 16px !important; 
-    }
-    
-    .skill-title {
-        font-size: 0.9rem !important;
-    }
-    
-    .project-card {
-        min-height: auto !important;
-        margin-bottom: 20px !important;
-    }
-    
-    .project-card img {
-        height: 180px !important;
-        min-height: 180px !important;
-        max-height: 180px !important;
-    }
-    
-    .project-content { 
-        padding: 16px !important; 
-    }
-    
-    .project-content h4 {
-        font-size: clamp(0.85rem, 2vw, 1.05rem) !important;
-    }
-    
-    .project-content p {
-        font-size: clamp(0.7rem, 1.5vw, 0.85rem) !important;
-    }
-    
-    .gallery-item img {
-        height: 180px !important;
-        min-height: 180px !important;
-        max-height: 180px !important;
-    }
-    
-    #counter { 
-        padding: 40px 0 !important; 
-    }
-    
     .counter-box {
-        padding: 18px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
     }
-    
-    .counter-box h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
-    }
-    
     .service-card {
-        padding: 20px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
+        padding: 25px 20px;
     }
-    
-    .service-card i {
-        font-size: clamp(30px, 5vw, 38px) !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .service-card h4 {
-        font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .service-card p {
-        font-size: clamp(0.7rem, 1.5vw, 0.85rem) !important;
-    }
-    
     .achievement-card {
-        padding: 20px 15px !important;
-        margin-bottom: 15px !important;
-        min-height: auto !important;
-    }
-    
-    .achievement-card h2 {
-        font-size: clamp(1rem, 3vw, 1.5rem) !important;
-    }
-    
-    .achievement-card i {
-        font-size: clamp(30px, 5vw, 38px) !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .contact-info { 
-        padding: 20px !important; 
-    }
-    
-    .contact-item {
-        flex-direction: column !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
-    }
-    
-    .contact-item i {
-        margin-right: 0 !important;
-        margin-bottom: 10px !important;
-        width: clamp(40px, 6vw, 45px) !important;
-        height: clamp(40px, 6vw, 45px) !important;
-        font-size: clamp(14px, 2vw, 16px) !important;
-    }
-    
-    .contact-item h5 {
-        font-size: 0.9rem !important;
-    }
-    
-    .contact-item p {
-        font-size: 0.8rem !important;
-    }
-    
-    .contact-form { 
-        padding: 20px !important; 
-    }
-    
-    .contact-form .form-control {
-        padding: 10px 14px !important;
-        font-size: clamp(0.7rem, 1.5vw, 0.85rem) !important;
-        margin-bottom: 14px !important;
-    }
-    
-    .contact-form button {
-        padding: 10px 28px !important;
-        font-size: clamp(0.7rem, 1.5vw, 0.85rem) !important;
-        width: 100% !important;
-    }
-    
-    .download-cv .btn {
-        padding: 10px 22px !important;
-        font-size: clamp(0.7rem, 1.5vw, 0.85rem) !important;
-        width: 100% !important;
-    }
-    
-    .quote-box {
-        padding: 18px !important;
-        margin-top: 25px !important;
-    }
-    
-    .quote-box i {
-        font-size: 20px !important;
-    }
-    
-    #footer {
-        padding: 40px 0 20px !important;
-        text-align: center !important;
-    }
-    
-    #footer h2 {
-        font-size: clamp(1rem, 3vw, 1.3rem) !important;
-    }
-    
-    #footer h4 {
-        font-size: clamp(0.85rem, 2vw, 1rem) !important;
-        margin-top: 20px !important;
-    }
-    
-    #footer ul { 
-        padding: 0 !important; 
-    }
-    
-    .footer-social { 
-        justify-content: center !important; 
-        flex-wrap: wrap !important;
-    }
-    
-    .footer-social a {
-        width: clamp(35px, 5vw, 40px) !important;
-        height: clamp(35px, 5vw, 40px) !important;
-        font-size: clamp(12px, 1.8vw, 15px) !important;
-        margin: 0 4px !important;
-    }
-    
-    #topBtn {
-        width: clamp(38px, 6vw, 42px) !important;
-        height: clamp(38px, 6vw, 42px) !important;
-        font-size: clamp(14px, 2vw, 16px) !important;
-        bottom: 15px !important;
-        right: 15px !important;
+        padding: 25px 20px;
     }
 }
 
-/* ============================================
-   RESPONSIVE - HP KECIL
-   ============================================ */
-@media (max-width: 575.98px) {
-    .container { 
-        padding: 0 12px !important; 
+/* MOBILE LANDSCAPE (576px - 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 18px;
     }
-    
-    section { 
-        padding: 35px 0 !important; 
+    section {
+        padding: 50px 0;
     }
-    
+    .navbar {
+        padding: 12px 0;
+    }
+    .navbar-brand {
+        font-size: clamp(1rem, 3vw, 1.4rem);
+    }
+    .navbar-nav {
+        text-align: center;
+        padding: 15px 0;
+    }
+    .nav-link {
+        margin: 8px 0;
+        font-size: clamp(0.85rem, 2vw, 1rem);
+    }
     #home {
-        padding: 70px 0 30px !important;
+        padding: 90px 0 30px;
     }
-    
-    #home h1 { 
-        font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+    #home h1 {
+        font-size: clamp(1.5rem, 4.5vw, 2.2rem);
     }
-    
     #typing {
-        font-size: clamp(0.7rem, 2.5vw, 0.9rem) !important;
-        min-height: 25px !important;
-        margin: 8px 0 !important;
+        font-size: clamp(0.8rem, 2vw, 1.1rem);
+        min-height: 30px;
     }
-    
     #home p {
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem) !important;
+        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        padding: 0 5px;
     }
-    
-    /* FOTO PROFIL - HP KECIL */
-    .hero-image {
-        width: 150px !important;
-        max-width: 150px !important;
-        margin: 0 auto 10px !important;
+    .hero-image img {
+        width: clamp(160px, 35vw, 220px);
     }
-    
-    .hero-image .img-wrapper {
-        padding-top: 100% !important;
-        border: 3px solid rgba(255,255,255,0.15) !important;
-        box-shadow: 0 0 30px rgba(59,130,246,0.3) !important;
-    }
-    
-    .hero-image .img-wrapper img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-    
     .hero-image::after {
-        width: calc(100% + 20px) !important;
-        height: calc(100% + 20px) !important;
-        border-width: 1.5px !important;
-        border-radius: 50% !important;
+        width: clamp(200px, 40vw, 260px);
+        height: clamp(200px, 40vw, 260px);
     }
-    
-    .section-title {
-        font-size: clamp(0.95rem, 3.5vw, 1.2rem) !important;
-        margin-bottom: 20px !important;
+    .badge {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        padding: 6px 12px;
     }
-    
     .hero-btn .btn {
-        padding: 6px 12px !important;
-        font-size: clamp(0.6rem, 1.5vw, 0.7rem) !important;
-        width: 100% !important;
-        margin: 4px 0 !important;
-        white-space: normal !important;
+        padding: 8px 16px;
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+        margin-right: 6px;
+        margin-bottom: 8px;
+        white-space: nowrap;
     }
-    
-    .hero-btn {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 6px !important;
-    }
-    
     .social a {
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 11px !important;
-        margin: 0 3px !important;
+        width: clamp(35px, 6vw, 42px);
+        height: clamp(35px, 6vw, 42px);
+        font-size: clamp(12px, 2vw, 15px);
+        margin-right: 6px;
     }
-    
+    .section-title {
+        font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+        margin-bottom: 25px;
+    }
+    .section-subtitle {
+        font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+    }
+    .about-card {
+        padding: 18px 12px;
+        margin-bottom: 12px;
+    }
+    .about-card h2 {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+    .skill-box {
+        margin-bottom: 16px;
+    }
     .project-card img {
-        height: 150px !important;
-        min-height: 150px !important;
-        max-height: 150px !important;
+        min-height: 120px;
+        max-height: 180px;
     }
-    
+    .project-content {
+        padding: 16px;
+    }
+    .project-content h4 {
+        font-size: clamp(0.85rem, 2vw, 1.05rem);
+    }
+    .project-content p {
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    }
     .gallery-item img {
-        height: 150px !important;
-        min-height: 150px !important;
-        max-height: 150px !important;
+        min-height: 120px;
+        max-height: 180px;
     }
-    
+    #counter {
+        padding: 50px 0;
+    }
     .counter-box {
-        padding: 14px 10px !important;
-        min-height: auto !important;
+        padding: 18px 12px;
+        margin-bottom: 15px;
     }
-    
     .counter-box h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
-    
-    .counter-box p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
-    }
-    
     .service-card {
-        padding: 16px 12px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        min-height: 150px;
     }
-    
     .service-card i {
-        font-size: 25px !important;
-        margin-bottom: 10px !important;
+        font-size: clamp(30px, 5vw, 38px);
     }
-    
     .service-card h4 {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem) !important;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
-    
-    .service-card p {
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem) !important;
-    }
-    
     .achievement-card {
-        padding: 16px 12px !important;
-        min-height: auto !important;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        min-height: 110px;
     }
-    
     .achievement-card h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
-    
     .achievement-card i {
-        font-size: 25px !important;
-        margin-bottom: 8px !important;
+        font-size: clamp(30px, 5vw, 38px);
     }
-    
-    .contact-info { 
-        padding: 16px !important; 
+    .contact-info {
+        padding: 20px;
     }
-    
     .contact-item {
-        margin-bottom: 16px !important;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
     }
-    
     .contact-item i {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 13px !important;
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: clamp(40px, 6vw, 45px);
+        height: clamp(40px, 6vw, 45px);
+        font-size: clamp(14px, 2vw, 16px);
     }
-    
-    .contact-item h5 {
-        font-size: 0.8rem !important;
+    .contact-form {
+        padding: 20px;
     }
-    
-    .contact-item p {
-        font-size: 0.7rem !important;
-    }
-    
-    .contact-form { 
-        padding: 16px !important; 
-    }
-    
     .contact-form .form-control {
-        padding: 8px 12px !important;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem) !important;
-        margin-bottom: 12px !important;
+        padding: 10px 14px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+        margin-bottom: 14px;
     }
-    
     .contact-form button {
-        padding: 8px 22px !important;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem) !important;
+        padding: 10px 28px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
-    
-    .quote-box {
-        padding: 14px !important;
-        margin-top: 20px !important;
-    }
-    
-    .quote-box i {
-        font-size: 16px !important;
-    }
-    
-    .quote-box p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
-    }
-    
     .download-cv .btn {
-        padding: 8px 18px !important;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem) !important;
+        padding: 10px 22px;
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
-    
+    .resume-card {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    .resume-card h3 {
+        font-size: clamp(0.9rem, 2vw, 1.05rem);
+    }
+    .table {
+        font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+    }
+    .table td,
+    .table th {
+        padding: 6px 10px;
+    }
     #footer {
-        padding: 30px 0 15px !important;
+        padding: 40px 0 20px;
+        text-align: center;
     }
-    
     #footer h2 {
-        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+        font-size: clamp(1rem, 3vw, 1.3rem);
     }
-    
     #footer h4 {
-        font-size: clamp(0.75rem, 2.5vw, 0.9rem) !important;
-        margin-top: 15px !important;
+        font-size: clamp(0.85rem, 2vw, 1rem);
     }
-    
-    #footer p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
+    #footer ul {
+        padding: 0;
     }
-    
-    #footer li a {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
+    .footer-social {
+        justify-content: center;
     }
-    
     .footer-social a {
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 11px !important;
-        margin: 0 3px !important;
+        width: clamp(35px, 5vw, 40px);
+        height: clamp(35px, 5vw, 40px);
+        font-size: clamp(12px, 1.8vw, 15px);
     }
-    
-    #footer hr { 
-        margin: 15px 0 !important; 
-    }
-    
-    .copyright {
-        font-size: clamp(0.55rem, 1.5vw, 0.7rem) !important;
-    }
-    
     #topBtn {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 12px !important;
-        bottom: 12px !important;
-        right: 12px !important;
+        width: clamp(38px, 6vw, 42px);
+        height: clamp(38px, 6vw, 42px);
+        font-size: clamp(14px, 2vw, 16px);
+        bottom: 15px;
+        right: 15px;
     }
 }
 
-/* ============================================
-   LARGE SCREEN
-   ============================================ */
+/* MOBILE PORTRAIT (< 576px) */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 12px;
+    }
+    section {
+        padding: 40px 0;
+    }
+    #home h1 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+    #typing {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        min-height: 25px;
+        margin: 12px 0;
+    }
+    #home p {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .hero-image img {
+        width: clamp(120px, 35vw, 160px);
+    }
+    .hero-image::after {
+        width: clamp(160px, 40vw, 200px);
+        height: clamp(160px, 40vw, 200px);
+    }
+    .section-title {
+        font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+        margin-bottom: 20px;
+    }
+    .hero-btn .btn {
+        padding: 6px 14px;
+        font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+        width: 100%;
+        margin: 4px 0;
+        white-space: normal;
+    }
+    .hero-btn {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .social a {
+        width: clamp(30px, 7vw, 36px);
+        height: clamp(30px, 7vw, 36px);
+        font-size: clamp(10px, 2vw, 13px);
+        margin-right: 5px;
+    }
+    .about-card {
+        padding: 14px 10px;
+        min-height: 80px;
+    }
+    .about-card h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .project-card {
+        min-height: 260px;
+    }
+    .project-card img {
+        min-height: 100px;
+        max-height: 150px;
+    }
+    .project-content {
+        padding: 14px;
+    }
+    .project-content h4 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+    .project-content p {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .project-content .btn {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        padding: 6px 16px;
+    }
+    .gallery-item img {
+        min-height: 100px;
+        max-height: 150px;
+    }
+    .counter-box {
+        padding: 14px 10px;
+        min-height: 80px;
+    }
+    .counter-box h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .counter-box p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .service-card {
+        padding: 16px 12px;
+        min-height: 130px;
+    }
+    .service-card i {
+        font-size: clamp(25px, 6vw, 32px);
+        margin-bottom: 12px;
+    }
+    .service-card h4 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .achievement-card {
+        padding: 16px 12px;
+        min-height: 100px;
+    }
+    .achievement-card h2 {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    .achievement-card i {
+        font-size: clamp(25px, 6vw, 32px);
+        margin-bottom: 10px;
+    }
+    .achievement-card p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .contact-info {
+        padding: 16px;
+    }
+    .contact-item {
+        margin-bottom: 16px;
+    }
+    .contact-item i {
+        width: clamp(35px, 7vw, 40px);
+        height: clamp(35px, 7vw, 40px);
+        font-size: clamp(12px, 2.5vw, 14px);
+    }
+    .contact-item h5 {
+        font-size: clamp(0.75rem, 2vw, 0.85rem);
+    }
+    .contact-item p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .contact-form {
+        padding: 16px;
+    }
+    .contact-form .form-control {
+        padding: 8px 12px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+        margin-bottom: 12px;
+    }
+    .contact-form button {
+        padding: 8px 22px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .quote-box {
+        padding: 16px;
+        margin-top: 25px;
+    }
+    .quote-box i {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .quote-box p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .download-cv .btn {
+        padding: 8px 18px;
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+    .resume-card {
+        padding: 16px;
+    }
+    .resume-card h3 {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        margin-bottom: 14px;
+    }
+    .resume-card li {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+        margin-bottom: 6px;
+    }
+    .table {
+        font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+    }
+    .table td,
+    .table th {
+        padding: 4px 6px;
+    }
+    #footer {
+        padding: 30px 0 15px;
+    }
+    #footer h2 {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+    #footer h4 {
+        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+        margin-bottom: 12px;
+    }
+    #footer p {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    #footer li a {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    }
+    .footer-social a {
+        width: clamp(30px, 6vw, 35px);
+        height: clamp(30px, 6vw, 35px);
+        font-size: clamp(10px, 2vw, 13px);
+        margin-right: 5px;
+    }
+    #footer hr {
+        margin: 20px 0;
+    }
+    .copyright {
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+    }
+    #topBtn {
+        width: clamp(32px, 7vw, 38px);
+        height: clamp(32px, 7vw, 38px);
+        font-size: clamp(12px, 2vw, 14px);
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+/* LARGE SCREEN (1200px+) */
 @media (min-width: 1201px) {
     #home h1 {
         font-size: clamp(3rem, 4.5vw, 4.5rem);
     }
-    .hero-image {
-        max-width: 360px;
-    }
-    .hero-image .img-wrapper {
-        padding-top: 100%;
+    .hero-image img {
+        width: clamp(320px, 28vw, 400px);
     }
     .hero-image::after {
-        width: calc(100% + 30px);
-        height: calc(100% + 30px);
+        width: clamp(360px, 30vw, 430px);
+        height: clamp(360px, 30vw, 430px);
     }
 }
 
-/* ============================================
-   PRINT
-   ============================================ */
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
 @media print {
-    #loader, #topBtn, .navbar, .social, .hero-btn, .download-cv, #contact form {
+    #loader,
+    #topBtn,
+    .navbar,
+    .social,
+    .hero-btn,
+    .download-cv,
+    #contact form {
         display: none !important;
     }
     body {
@@ -1598,8 +1451,52 @@ section {
     .container {
         max-width: 100% !important;
     }
-    .project-card, .service-card, .achievement-card, .about-card {
+    .project-card,
+    .service-card,
+    .achievement-card,
+    .about-card {
         border: 1px solid #ddd !important;
         box-shadow: none !important;
     }
 }
+
+/* ==========================================
+   FIX PROJECT IMAGE - PASTIKAN MUNCUL
+   ========================================== */
+
+.project-card img {
+    width: 100% !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    object-fit: cover !important;
+    display: block !important;
+    background: #1a1a2e !important;
+}
+
+.project-card {
+    background: #182233 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    transition: 0.4s !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    height: 100% !important;
+    min-height: 350px !important;
+}
+
+.project-content {
+    padding: 20px !important;
+}
+
+/* Fallback kalau gambar gagal load */
+.project-card img::after {
+    content: "📷";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    background: #1a1a2e;
+    height: 200px;
+    width: 100%;
+}
+
