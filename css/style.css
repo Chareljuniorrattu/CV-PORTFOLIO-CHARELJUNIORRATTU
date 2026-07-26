@@ -50,6 +50,8 @@ section {
     max-width: 1200px;
     padding-left: 15px;
     padding-right: 15px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* SCROLLBAR */
@@ -212,17 +214,6 @@ section {
         opacity: 1;
         border-color: rgba(59,130,246,0.5);
     }
-}
-
-/* responsive hero image */
-@media (max-width: 992px) {
-    .hero-image { max-width: 280px; }
-}
-@media (max-width: 768px) {
-    .hero-image { max-width: 220px; }
-}
-@media (max-width: 576px) {
-    .hero-image { max-width: 160px; }
 }
 
 .badge {
@@ -462,6 +453,7 @@ section {
     transition: .4s;
     border: 1px solid rgba(255,255,255,.08);
     min-height: 320px;
+    height: 100%;
 }
 .project-card:hover {
     transform: translateY(-12px);
@@ -469,10 +461,12 @@ section {
 }
 .project-card img {
     width: 100%;
-    height: auto;
-    min-height: 150px;
-    max-height: 220px;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     object-fit: cover;
+    display: block;
+    background: #1a1a2e;
 }
 
 .project-content {
@@ -508,9 +502,9 @@ section {
 }
 .gallery-item img {
     width: 100%;
-    height: auto;
-    min-height: 150px;
-    max-height: 220px;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     object-fit: cover;
     transition: .5s;
 }
@@ -820,41 +814,77 @@ section {
     box-shadow: 0 10px 25px rgba(59,130,246,0.4);
 }
 
-/* RESPONSIVE - TABLET */
-@media (max-width: 992px) {
+/* ============================================
+   RESPONSIVE - UTAMA (DISESUAIKAN UNTUK HP)
+   ============================================ */
+
+/* TABLET & HP LANDSCAPE */
+@media (max-width: 991.98px) {
     section { padding: 70px 0; }
+    
     #home {
         text-align: center;
         padding: 110px 0 50px;
         min-height: auto;
     }
-    #home h1 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); }
-    #typing { font-size: clamp(0.9rem, 2vw, 1.3rem); }
-    .section-title { font-size: clamp(1.3rem, 3vw, 2rem); }
+    
+    #home h1 { 
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem); 
+        margin-top: 10px;
+    }
+    
+    #typing { 
+        font-size: clamp(0.9rem, 2vw, 1.3rem); 
+        min-height: 35px;
+    }
+    
+    .section-title { 
+        font-size: clamp(1.3rem, 3vw, 2rem); 
+    }
+    
+    .hero-image {
+        max-width: 280px;
+        margin-bottom: 20px;
+    }
+    
     .hero-image img {
-        width: clamp(200px, 35vw, 280px);
-        margin-bottom: 30px;
+        width: 100% !important;
     }
+    
     .hero-image::after {
-        width: clamp(240px, 38vw, 320px);
-        height: clamp(240px, 38vw, 320px);
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
     }
+    
     #home p {
         margin: 0 auto;
         font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+        max-width: 600px;
     }
+    
     .hero-btn {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 10px;
     }
+    
     .hero-btn .btn {
         white-space: nowrap;
         font-size: clamp(0.7rem, 1.2vw, 0.9rem);
         padding: 8px 20px;
     }
-    .social { justify-content: center; }
-    .timeline::before { left: 20px; }
+    
+    .social { 
+        justify-content: center; 
+        flex-wrap: wrap;
+    }
+    
+    /* TIMELINE - mobile version */
+    .timeline::before { 
+        left: 20px; 
+    }
+    
     .timeline-item {
         width: 100%;
         padding-left: 50px;
@@ -862,129 +892,217 @@ section {
     }
     .timeline-item:nth-child(even) { left: 0; }
     .timeline-item:nth-child(odd) { left: 0; }
-    .contact-info { margin-bottom: 25px; }
-    .about-card { padding: 20px 15px; }
-    .counter-box { padding: 20px 15px; }
-    .service-card { padding: 25px 20px; }
-    .achievement-card { padding: 25px 20px; }
+    
+    .contact-info { 
+        margin-bottom: 25px; 
+    }
 }
 
-/* RESPONSIVE - MOBILE LANDSCAPE */
-@media (max-width: 768px) {
-    .container { padding: 0 18px; }
-    section { padding: 50px 0; }
-    .navbar { padding: 12px 0; }
-    .navbar-brand { font-size: clamp(1rem, 3vw, 1.4rem); }
+/* HP PORTRAIT (SMARTPHONE) */
+@media (max-width: 767.98px) {
+    .container { 
+        padding: 0 15px; 
+    }
+    
+    section { 
+        padding: 50px 0; 
+    }
+    
+    .navbar { 
+        padding: 12px 0; 
+    }
+    
+    .navbar-brand { 
+        font-size: clamp(1rem, 3vw, 1.4rem); 
+    }
+    
     .navbar-nav {
         text-align: center;
         padding: 15px 0;
     }
+    
     .nav-link {
         margin: 8px 0;
         font-size: clamp(0.85rem, 2vw, 1rem);
     }
+    
     #home {
-        padding: 90px 0 30px;
+        padding: 80px 0 30px;
     }
-    #home h1 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+    
+    #home h1 { 
+        font-size: clamp(1.5rem, 4.5vw, 2rem); 
+        margin-top: 5px;
+    }
+    
     #typing {
-        font-size: clamp(0.8rem, 2vw, 1.1rem);
+        font-size: clamp(0.8rem, 2vw, 1rem);
         min-height: 30px;
+        margin: 10px 0;
     }
+    
     #home p {
-        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        font-size: clamp(0.75rem, 1.8vw, 0.88rem);
         padding: 0 5px;
+        max-width: 100%;
     }
+    
+    .hero-image {
+        max-width: 220px;
+    }
+    
     .hero-image img {
-        width: clamp(160px, 35vw, 220px);
+        width: 100% !important;
     }
+    
     .hero-image::after {
-        width: clamp(200px, 40vw, 260px);
-        height: clamp(200px, 40vw, 260px);
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
     }
+    
     .badge {
         font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-        padding: 6px 12px;
+        padding: 5px 12px;
     }
+    
     .hero-btn .btn {
         padding: 8px 16px;
         font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-        margin-right: 6px;
-        margin-bottom: 8px;
+        margin: 0;
         white-space: nowrap;
     }
+    
+    .hero-btn {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
     .social a {
         width: clamp(35px, 6vw, 42px);
         height: clamp(35px, 6vw, 42px);
         font-size: clamp(12px, 2vw, 15px);
-        margin-right: 6px;
+        margin: 0 5px;
     }
+    
     .section-title {
-        font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+        font-size: clamp(1.1rem, 3.5vw, 1.5rem);
         margin-bottom: 25px;
     }
+    
     .section-subtitle {
         font-size: clamp(0.55rem, 1.2vw, 0.7rem);
     }
+    
     .about-card {
-        padding: 18px 12px;
-        margin-bottom: 12px;
+        padding: 18px 15px;
+        margin-bottom: 15px;
+        min-height: auto;
     }
+    
     .about-card h2 {
         font-size: clamp(1rem, 3vw, 1.5rem);
     }
-    .skill-box { margin-bottom: 16px; }
+    
+    .about-card p {
+        font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+    }
+    
+    .skill-box { 
+        margin-bottom: 16px; 
+    }
+    
+    .skill-title {
+        font-size: 0.9rem;
+    }
+    
+    .project-card {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    
     .project-card img {
-        min-height: 120px;
+        height: 180px;
+        min-height: 180px;
         max-height: 180px;
     }
-    .project-content { padding: 16px; }
+    
+    .project-content { 
+        padding: 16px; 
+    }
+    
     .project-content h4 {
         font-size: clamp(0.85rem, 2vw, 1.05rem);
     }
+    
     .project-content p {
         font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     }
+    
     .gallery-item img {
-        min-height: 120px;
+        height: 180px;
+        min-height: 180px;
         max-height: 180px;
     }
-    #counter { padding: 50px 0; }
-    .counter-box {
-        padding: 18px 12px;
-        margin-bottom: 15px;
+    
+    #counter { 
+        padding: 40px 0; 
     }
+    
+    .counter-box {
+        padding: 18px 15px;
+        margin-bottom: 15px;
+        min-height: auto;
+    }
+    
     .counter-box h2 {
         font-size: clamp(1rem, 3vw, 1.5rem);
     }
+    
     .service-card {
         padding: 20px 15px;
         margin-bottom: 15px;
-        min-height: 150px;
+        min-height: auto;
     }
+    
     .service-card i {
         font-size: clamp(30px, 5vw, 38px);
+        margin-bottom: 15px;
     }
+    
     .service-card h4 {
         font-size: clamp(0.9rem, 2vw, 1.1rem);
+        margin-bottom: 10px;
     }
+    
+    .service-card p {
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    }
+    
     .achievement-card {
         padding: 20px 15px;
         margin-bottom: 15px;
-        min-height: 110px;
+        min-height: auto;
     }
+    
     .achievement-card h2 {
         font-size: clamp(1rem, 3vw, 1.5rem);
     }
+    
     .achievement-card i {
         font-size: clamp(30px, 5vw, 38px);
+        margin-bottom: 10px;
     }
-    .contact-info { padding: 20px; }
+    
+    .contact-info { 
+        padding: 20px; 
+    }
+    
     .contact-item {
         flex-direction: column;
         text-align: center;
         margin-bottom: 20px;
     }
+    
     .contact-item i {
         margin-right: 0;
         margin-bottom: 10px;
@@ -992,50 +1110,76 @@ section {
         height: clamp(40px, 6vw, 45px);
         font-size: clamp(14px, 2vw, 16px);
     }
-    .contact-form { padding: 20px; }
+    
+    .contact-item h5 {
+        font-size: 0.9rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.8rem;
+    }
+    
+    .contact-form { 
+        padding: 20px; 
+    }
+    
     .contact-form .form-control {
         padding: 10px 14px;
         font-size: clamp(0.7rem, 1.5vw, 0.85rem);
         margin-bottom: 14px;
     }
+    
     .contact-form button {
         padding: 10px 28px;
         font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+        width: 100%;
     }
+    
     .download-cv .btn {
         padding: 10px 22px;
         font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+        width: 100%;
     }
-    .resume-card {
-        padding: 20px;
-        margin-bottom: 15px;
+    
+    .quote-box {
+        padding: 18px;
+        margin-top: 25px;
     }
-    .resume-card h3 {
-        font-size: clamp(0.9rem, 2vw, 1.05rem);
+    
+    .quote-box i {
+        font-size: 20px;
     }
-    .table {
-        font-size: clamp(0.6rem, 1.2vw, 0.75rem);
-    }
-    .table td, .table th {
-        padding: 6px 10px;
-    }
+    
     #footer {
         padding: 40px 0 20px;
         text-align: center;
     }
+    
     #footer h2 {
         font-size: clamp(1rem, 3vw, 1.3rem);
     }
+    
     #footer h4 {
         font-size: clamp(0.85rem, 2vw, 1rem);
+        margin-top: 20px;
     }
-    #footer ul { padding: 0; }
-    .footer-social { justify-content: center; }
+    
+    #footer ul { 
+        padding: 0; 
+    }
+    
+    .footer-social { 
+        justify-content: center; 
+        flex-wrap: wrap;
+    }
+    
     .footer-social a {
         width: clamp(35px, 5vw, 40px);
         height: clamp(35px, 5vw, 40px);
         font-size: clamp(12px, 1.8vw, 15px);
+        margin: 0 4px;
     }
+    
     #topBtn {
         width: clamp(38px, 6vw, 42px);
         height: clamp(38px, 6vw, 42px);
@@ -1045,272 +1189,48 @@ section {
     }
 }
 
-/* RESPONSIVE - MOBILE PORTRAIT */
-@media (max-width: 576px) {
-    .container { padding: 0 12px; }
-    section { padding: 40px 0; }
-    #home h1 { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+/* HP KECIL (di bawah 400px) */
+@media (max-width: 575.98px) {
+    .container { 
+        padding: 0 12px; 
+    }
+    
+    section { 
+        padding: 35px 0; 
+    }
+    
+    #home h1 { 
+        font-size: clamp(1.2rem, 5vw, 1.6rem); 
+    }
+    
     #typing {
         font-size: clamp(0.7rem, 2.5vw, 0.9rem);
         min-height: 25px;
-        margin: 12px 0;
+        margin: 8px 0;
     }
+    
     #home p {
         font-size: clamp(0.65rem, 1.8vw, 0.8rem);
     }
+    
+    .hero-image {
+        max-width: 160px;
+    }
+    
     .hero-image img {
-        width: clamp(120px, 35vw, 160px);
+        width: 100% !important;
     }
+    
     .hero-image::after {
-        width: clamp(160px, 40vw, 200px);
-        height: clamp(160px, 40vw, 200px);
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
     }
+    
     .section-title {
         font-size: clamp(0.95rem, 3.5vw, 1.2rem);
         margin-bottom: 20px;
     }
+    
     .hero-btn .btn {
-        padding: 6px 14px;
-        font-size: clamp(0.6rem, 1.5vw, 0.7rem);
-        width: 100%;
-        margin: 4px 0;
-        white-space: normal;
-    }
-    .hero-btn {
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-    }
-    .social a {
-        width: clamp(30px, 7vw, 36px);
-        height: clamp(30px, 7vw, 36px);
-        font-size: clamp(10px, 2vw, 13px);
-        margin-right: 5px;
-    }
-    .about-card {
-        padding: 14px 10px;
-        min-height: 80px;
-    }
-    .about-card h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-    }
-    .project-card { min-height: 260px; }
-    .project-card img {
-        min-height: 100px;
-        max-height: 150px;
-    }
-    .project-content { padding: 14px; }
-    .project-content h4 {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-    }
-    .project-content p {
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-    }
-    .project-content .btn {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-        padding: 6px 16px;
-    }
-    .gallery-item img {
-        min-height: 100px;
-        max-height: 150px;
-    }
-    .counter-box {
-        padding: 14px 10px;
-        min-height: 80px;
-    }
-    .counter-box h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-    }
-    .counter-box p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    .service-card {
-        padding: 16px 12px;
-        min-height: 130px;
-    }
-    .service-card i {
-        font-size: clamp(25px, 6vw, 32px);
-        margin-bottom: 12px;
-    }
-    .service-card h4 {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-        margin-bottom: 10px;
-    }
-    .service-card p {
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-    }
-    .achievement-card {
-        padding: 16px 12px;
-        min-height: 100px;
-    }
-    .achievement-card h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-    }
-    .achievement-card i {
-        font-size: clamp(25px, 6vw, 32px);
-        margin-bottom: 10px;
-    }
-    .achievement-card p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    .contact-info { padding: 16px; }
-    .contact-item { margin-bottom: 16px; }
-    .contact-item i {
-        width: clamp(35px, 7vw, 40px);
-        height: clamp(35px, 7vw, 40px);
-        font-size: clamp(12px, 2.5vw, 14px);
-    }
-    .contact-item h5 {
-        font-size: clamp(0.75rem, 2vw, 0.85rem);
-    }
-    .contact-item p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    .contact-form { padding: 16px; }
-    .contact-form .form-control {
-        padding: 8px 12px;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-        margin-bottom: 12px;
-    }
-    .contact-form button {
-        padding: 8px 22px;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-    }
-    .quote-box {
-        padding: 16px;
-        margin-top: 25px;
-    }
-    .quote-box i {
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
-    .quote-box p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    .download-cv .btn {
-        padding: 8px 18px;
-        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-    }
-    .resume-card {
-        padding: 16px;
-    }
-    .resume-card h3 {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-        margin-bottom: 14px;
-    }
-    .resume-card li {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-        margin-bottom: 6px;
-    }
-    .table {
-        font-size: clamp(0.55rem, 1.2vw, 0.65rem);
-    }
-    .table td, .table th {
-        padding: 4px 6px;
-    }
-    #footer {
-        padding: 30px 0 15px;
-    }
-    #footer h2 {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
-    }
-    #footer h4 {
-        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
-        margin-bottom: 12px;
-    }
-    #footer p {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    #footer li a {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    }
-    .footer-social a {
-        width: clamp(30px, 6vw, 35px);
-        height: clamp(30px, 6vw, 35px);
-        font-size: clamp(10px, 2vw, 13px);
-        margin-right: 5px;
-    }
-    #footer hr { margin: 20px 0; }
-    .copyright {
-        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
-    }
-    #topBtn {
-        width: clamp(32px, 7vw, 38px);
-        height: clamp(32px, 7vw, 38px);
-        font-size: clamp(12px, 2vw, 14px);
-        bottom: 12px;
-        right: 12px;
-    }
-}
-
-/* LARGE SCREEN */
-@media (min-width: 1201px) {
-    #home h1 {
-        font-size: clamp(3rem, 4.5vw, 4.5rem);
-    }
-    .hero-image img {
-        width: clamp(320px, 28vw, 400px);
-    }
-    .hero-image::after {
-        width: clamp(360px, 30vw, 430px);
-        height: clamp(360px, 30vw, 430px);
-    }
-}
-
-/* PRINT */
-@media print {
-    #loader, #topBtn, .navbar, .social, .hero-btn, .download-cv, #contact form {
-        display: none !important;
-    }
-    body {
-        background: white !important;
-        color: black !important;
-    }
-    section {
-        padding: 20px 0 !important;
-        page-break-inside: avoid;
-    }
-    .container {
-        max-width: 100% !important;
-    }
-    .project-card, .service-card, .achievement-card, .about-card {
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-    }
-}
-
-/* FIX PROJECT IMAGES */
-.project-card img {
-    width: 100% !important;
-    height: 200px !important;
-    min-height: 200px !important;
-    max-height: 200px !important;
-    object-fit: cover !important;
-    display: block !important;
-    background: #1a1a2e !important;
-}
-
-.project-card {
-    background: #182233 !important;
-    border-radius: 20px !important;
-    overflow: hidden !important;
-    transition: 0.4s !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    height: 100% !important;
-    min-height: 350px !important;
-}
-
-.project-content {
-    padding: 20px !important;
-}
-
-.project-card img::after {
-    content: "📷";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    background: #1a1a2e;
-    height: 200px;
-    width: 100%;
-}
+        padding: 6px 12px;
+        font-size: clamp(0.6rem, 
