@@ -74,6 +74,7 @@ section {
 .navbar {
     padding: 15px 0;
     transition: .4s;
+    z-index: 999;
 }
 .navbar.scrolled {
     background: #08101e;
@@ -103,6 +104,7 @@ section {
     display: flex;
     align-items: center;
     background: radial-gradient(circle at top right, #2563eb44, transparent), linear-gradient(#08101e, #0B1120);
+    padding-top: 70px;
 }
 #home .row {
     display: flex;
@@ -110,7 +112,7 @@ section {
     gap: 40px;
 }
 
-/* FOTO PROFIL */
+/* FOTO PROFIL - LINGKARAN SEMPURNA */
 .hero-image {
     position: relative;
     max-width: 360px;
@@ -668,10 +670,8 @@ section {
 #topBtn:hover { transform: translateY(-5px); }
 
 /* ==========================================
-   RESPONSIVE - TABLET & HP
+   RESPONSIVE - TABLET
    ========================================== */
-
-/* TABLET (max-width: 992px) */
 @media (max-width: 992px) {
     section { padding: 60px 0; }
     #home {
@@ -702,22 +702,44 @@ section {
     .contact-info { margin-bottom: 25px; }
 }
 
-/* HP (max-width: 768px) - RAPIH & CENTER */
+/* ==========================================
+   RESPONSIVE - HP (FOTO TIDAK PENYOT, NAVBAR RAPI, COUNTER 2 KOLOM)
+   ========================================== */
 @media (max-width: 768px) {
     .container { padding: 0 15px; }
     section { padding: 50px 0; }
     
-    /* NAVBAR */
-    .navbar { padding: 10px 0; }
+    /* NAVBAR - TIDAK KETIMPA */
+    .navbar { 
+        padding: 10px 0; 
+        background: #08101e !important;
+    }
     .navbar-brand { font-size: 20px; }
-    .navbar-nav { text-align: center; padding: 10px 0; }
-    .nav-link { margin: 8px 0; font-size: 15px; }
+    .navbar-nav { 
+        text-align: center; 
+        padding: 10px 0; 
+        background: #08101e;
+    }
+    .nav-link { 
+        margin: 8px 0; 
+        font-size: 15px; 
+        display: block;
+        padding: 5px 0;
+    }
+    .navbar-collapse {
+        background: #08101e;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
     
-    /* HERO - CENTER SEMUA */
-    #home { padding: 70px 0 20px; }
+    /* HERO - FOTO TIDAK PENYOT */
+    #home { 
+        padding: 80px 0 20px; 
+        min-height: auto;
+    }
     #home .row {
         flex-direction: column-reverse;
-        gap: 10px;
+        gap: 5px;
     }
     #home .col-lg-5,
     #home .col-lg-7 {
@@ -725,47 +747,99 @@ section {
         text-align: center;
         padding: 0 5px;
     }
-    #home h1 { font-size: 28px; margin-top: 5px; }
-    #typing { font-size: 17px; min-height: 30px; }
-    #home p { font-size: 14px; padding: 0 8px; }
-    .badge { font-size: 12px; padding: 5px 14px; }
+    #home h1 { 
+        font-size: 28px; 
+        margin-top: 5px; 
+        word-break: break-word;
+    }
+    #typing { 
+        font-size: 17px; 
+        min-height: 30px; 
+        margin: 5px 0;
+    }
+    #home p { 
+        font-size: 14px; 
+        padding: 0 8px; 
+        max-width: 100%;
+    }
+    .badge { 
+        font-size: 12px; 
+        padding: 5px 14px; 
+    }
     
-    /* FOTO HP */
-    .hero-image { max-width: 180px; margin: 0 auto 10px; }
-    .hero-image img { width: 180px; height: 180px; }
-    .hero-image::after { width: 210px; height: 210px; }
+    /* FOTO PROFIL - LINGKARAN SEMPURNA DI HP */
+    .hero-image { 
+        max-width: 180px; 
+        margin: 0 auto 10px; 
+    }
+    .hero-image img { 
+        width: 180px !important; 
+        height: 180px !important; 
+        min-width: 180px !important;
+        min-height: 180px !important;
+        max-width: 180px !important;
+        max-height: 180px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+    }
+    .hero-image::after { 
+        width: 210px !important; 
+        height: 210px !important; 
+    }
     
     /* TOMBOL HP */
     .hero-btn {
         flex-direction: column;
         align-items: center;
-        gap: 8px;
-        margin-top: 15px;
+        gap: 6px;
+        margin-top: 10px;
     }
     .hero-btn .btn {
         width: 80%;
-        max-width: 220px;
+        max-width: 200px;
         text-align: center;
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 8px 16px;
+        font-size: 13px;
         margin: 0;
     }
+    
     .social {
         justify-content: center;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 8px;
+        margin-top: 10px;
     }
-    .social a { width: 42px; height: 42px; font-size: 16px; margin: 0; }
+    .social a { 
+        width: 38px; 
+        height: 38px; 
+        font-size: 15px; 
+        margin: 0; 
+    }
     
     /* SECTION TITLE */
-    .section-title { font-size: 22px; text-align: center; }
-    .section-subtitle { font-size: 12px; text-align: center; }
+    .section-title { 
+        font-size: 22px; 
+        text-align: center; 
+    }
+    .section-subtitle { 
+        font-size: 12px; 
+        text-align: center; 
+    }
     
     /* ABOUT */
     #about .row { flex-direction: column; }
-    #about .col-lg-6 { width: 100%; text-align: center; }
-    #about p { font-size: 14px; text-align: center; }
-    .about-card { padding: 15px 12px; margin-bottom: 12px; }
+    #about .col-lg-6 { 
+        width: 100%; 
+        text-align: center; 
+        padding: 0 5px;
+    }
+    #about p { 
+        font-size: 14px; 
+        text-align: center; 
+    }
+    .about-card { 
+        padding: 15px 12px; 
+        margin-bottom: 12px; 
+    }
     .about-card h2 { font-size: 22px; }
     
     /* SKILLS */
@@ -787,11 +861,24 @@ section {
     .timeline-content p { font-size: 13px; }
     
     /* PROJECTS */
-    .project-card { margin-bottom: 20px; min-height: auto; }
-    .project-card img { height: 180px; }
+    .project-card { 
+        margin-bottom: 20px; 
+        min-height: auto; 
+    }
+    .project-card img { 
+        height: 180px; 
+        min-height: 180px;
+        max-height: 180px;
+    }
     .project-content { padding: 15px; }
-    .project-content h4 { font-size: 16px; text-align: center; }
-    .project-content p { font-size: 13px; text-align: center; }
+    .project-content h4 { 
+        font-size: 16px; 
+        text-align: center; 
+    }
+    .project-content p { 
+        font-size: 13px; 
+        text-align: center; 
+    }
     .project-content .btn {
         display: block;
         width: 100%;
@@ -801,86 +888,198 @@ section {
     }
     
     /* GALLERY */
-    .gallery-item img { height: 180px; }
+    .gallery-item img { 
+        height: 180px; 
+        min-height: 180px;
+        max-height: 180px;
+    }
     
-    /* COUNTER */
-    .counter-box { padding: 18px 12px; margin-bottom: 15px; }
-    .counter-box h2 { font-size: 28px; }
+    /* COUNTER - 2 KOLOM (bukan 4 ke bawah) */
+    #counter .row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+    .counter-box { 
+        padding: 15px 10px; 
+        margin-bottom: 0 !important;
+        min-height: auto;
+    }
+    .counter-box h2 { 
+        font-size: 28px; 
+    }
+    .counter-box p { 
+        font-size: 12px; 
+        margin-top: 5px;
+    }
     
     /* SERVICES */
-    .service-card { padding: 20px 15px; margin-bottom: 15px; min-height: auto; }
+    .service-card { 
+        padding: 20px 15px; 
+        margin-bottom: 15px; 
+        min-height: auto; 
+    }
     .service-card i { font-size: 32px; }
     .service-card h4 { font-size: 16px; }
     .service-card p { font-size: 13px; }
     
     /* ACHIEVEMENT */
-    .achievement-card { padding: 18px 12px; margin-bottom: 15px; min-height: auto; }
+    .achievement-card { 
+        padding: 18px 12px; 
+        margin-bottom: 15px; 
+        min-height: auto; 
+    }
     .achievement-card h2 { font-size: 26px; }
     .achievement-card i { font-size: 30px; }
     
     /* CONTACT */
-    .contact-info { padding: 18px; margin-bottom: 20px; }
+    .contact-info { 
+        padding: 18px; 
+        margin-bottom: 20px; 
+    }
     .contact-item {
         flex-direction: column;
         text-align: center;
         gap: 5px;
         margin-bottom: 18px;
     }
-    .contact-item i { margin: 0 auto 8px; width: 45px; height: 45px; font-size: 16px; }
+    .contact-item i { 
+        margin: 0 auto 8px; 
+        width: 45px; 
+        height: 45px; 
+        font-size: 16px; 
+    }
     .contact-item h5 { font-size: 15px; }
     .contact-item p { font-size: 13px; }
     .contact-form { padding: 18px; }
-    .contact-form .form-control { padding: 10px 14px; font-size: 14px; margin-bottom: 12px; }
-    .contact-form button { width: 100%; padding: 12px; font-size: 14px; }
-    .download-cv .btn { padding: 10px 22px; font-size: 14px; }
-    .quote-box { padding: 16px; margin-top: 20px; }
+    .contact-form .form-control { 
+        padding: 10px 14px; 
+        font-size: 14px; 
+        margin-bottom: 12px; 
+    }
+    .contact-form button { 
+        width: 100%; 
+        padding: 12px; 
+        font-size: 14px; 
+    }
+    .download-cv .btn { 
+        padding: 10px 22px; 
+        font-size: 14px; 
+    }
+    .quote-box { 
+        padding: 16px; 
+        margin-top: 20px; 
+    }
     .quote-box i { font-size: 18px; }
     .quote-box p { font-size: 13px; }
     
     /* FOOTER */
-    #footer { padding: 30px 0 15px; text-align: center; }
-    #footer .row { flex-direction: column; gap: 20px; }
-    #footer .col-lg-4 { width: 100%; text-align: center; }
+    #footer { 
+        padding: 30px 0 15px; 
+        text-align: center; 
+    }
+    #footer .row { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    #footer .col-lg-4 { 
+        width: 100%; 
+        text-align: center; 
+    }
     #footer h2 { font-size: 22px; }
     #footer h4 { font-size: 16px; }
     #footer p { font-size: 13px; }
     #footer ul { padding: 0; }
     #footer li a { font-size: 13px; }
     .footer-social { justify-content: center; }
-    .footer-social a { width: 40px; height: 40px; font-size: 15px; }
+    .footer-social a { 
+        width: 40px; 
+        height: 40px; 
+        font-size: 15px; 
+    }
     
     /* TOP BUTTON */
-    #topBtn { width: 40px; height: 40px; font-size: 15px; bottom: 15px; right: 15px; }
+    #topBtn { 
+        width: 40px; 
+        height: 40px; 
+        font-size: 15px; 
+        bottom: 15px; 
+        right: 15px; 
+    }
 }
 
-/* HP KECIL (max-width: 576px) */
+/* HP KECIL */
 @media (max-width: 576px) {
     #home h1 { font-size: 22px; }
     #typing { font-size: 14px; min-height: 25px; }
     #home p { font-size: 13px; }
     
     .hero-image { max-width: 150px; }
-    .hero-image img { width: 150px; height: 150px; }
-    .hero-image::after { width: 180px; height: 180px; }
+    .hero-image img { 
+        width: 150px !important; 
+        height: 150px !important; 
+        min-width: 150px !important;
+        min-height: 150px !important;
+        max-width: 150px !important;
+        max-height: 150px !important;
+    }
+    .hero-image::after { 
+        width: 180px !important; 
+        height: 180px !important; 
+    }
     
     .badge { font-size: 10px; padding: 4px 12px; }
-    .hero-btn .btn { width: 90%; font-size: 13px; padding: 8px 16px; }
-    .social a { width: 36px; height: 36px; font-size: 14px; }
+    .hero-btn .btn { 
+        width: 90%; 
+        font-size: 13px; 
+        padding: 8px 16px; 
+    }
+    .social a { 
+        width: 36px; 
+        height: 36px; 
+        font-size: 14px; 
+    }
     
     .section-title { font-size: 19px; }
     .about-card h2 { font-size: 20px; }
-    .project-card img { height: 150px; }
-    .gallery-item img { height: 150px; }
+    .project-card img { 
+        height: 150px; 
+        min-height: 150px;
+        max-height: 150px;
+    }
+    .gallery-item img { 
+        height: 150px; 
+        min-height: 150px;
+        max-height: 150px;
+    }
+    
+    /* COUNTER - 2 KOLOM tetap */
+    #counter .row {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
     .counter-box h2 { font-size: 24px; }
+    .counter-box p { font-size: 11px; }
+    
     .service-card i { font-size: 28px; }
     .achievement-card h2 { font-size: 22px; }
     .achievement-card i { font-size: 26px; }
-    .contact-item i { width: 40px; height: 40px; font-size: 14px; }
+    .contact-item i { 
+        width: 40px; 
+        height: 40px; 
+        font-size: 14px; 
+    }
     #footer h2 { font-size: 20px; }
-    #topBtn { width: 36px; height: 36px; font-size: 13px; bottom: 12px; right: 12px; }
+    #topBtn { 
+        width: 36px; 
+        height: 36px; 
+        font-size: 13px; 
+        bottom: 12px; 
+        right: 12px; 
+    }
 }
 
-/* LARGE SCREEN (min-width: 1201px) */
+/* LARGE SCREEN */
 @media (min-width: 1201px) {
     #home h1 { font-size: 54px; }
     .hero-image { max-width: 400px; }
